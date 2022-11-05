@@ -10,9 +10,10 @@
 #define DEBUG_HIGHEST 5u
 #define DEBUG_KERNEL 6u
 #define DEBUG_NONE 7u
+extern void print_usartLp(char *format, ...);
 
 #if defined(DEBUG_ENABLE)
-#define DBG printf
+#define DBG print_usartLp
 #else
 #define DBG
 #endif

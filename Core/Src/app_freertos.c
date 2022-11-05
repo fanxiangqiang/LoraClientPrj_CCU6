@@ -58,8 +58,8 @@ const osThreadAttr_t LoraTread_attributes = {
 osThreadId_t LedBlinkThreadHandle;
 const osThreadAttr_t LedBlinkThread_attributes = {
   .name = "LedBlinkThread",
-  .priority = (osPriority_t) osPriorityLow,
-  .stack_size = 128 * 4
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 256 * 4
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -128,7 +128,8 @@ void LoraTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    osDelay(1000);
+
   }
   /* USER CODE END LoraTask */
 }
@@ -148,7 +149,7 @@ void LedBlink(void *argument)
   {
 	  HAL_GPIO_TogglePin(Led_PB3_GPIO_Port, Led_PB3_Pin);
 	  osDelay(1000);
-	  DBG("hello world\r\n");
+	  DBG("hello world %2f -\r\n",3.14);
   }
   /* USER CODE END LedBlink */
 }
