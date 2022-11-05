@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "DebugLog.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,11 +47,18 @@
 /* USER CODE BEGIN Variables */
 
 /* USER CODE END Variables */
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
+/* Definitions for LoraTread */
+osThreadId_t LoraTreadHandle;
+const osThreadAttr_t LoraTread_attributes = {
+  .name = "LoraTread",
   .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for LedBlinkThread */
+osThreadId_t LedBlinkThreadHandle;
+const osThreadAttr_t LedBlinkThread_attributes = {
+  .name = "LedBlinkThread",
+  .priority = (osPriority_t) osPriorityLow,
   .stack_size = 128 * 4
 };
 
@@ -60,7 +67,8 @@ const osThreadAttr_t defaultTask_attributes = {
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void *argument);
+void LoraTask(void *argument);
+void LedBlink(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -91,8 +99,11 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  /* creation of LoraTread */
+  LoraTreadHandle = osThreadNew(LoraTask, NULL, &LoraTread_attributes);
+
+  /* creation of LedBlinkThread */
+  LedBlinkThreadHandle = osThreadNew(LedBlink, NULL, &LedBlinkThread_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -104,22 +115,42 @@ void MX_FREERTOS_Init(void) {
 
 }
 
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_LoraTask */
 /**
-  * @brief  Function implementing the defaultTask thread.
+  * @brief  Function implementing the LoraTread thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
+/* USER CODE END Header_LoraTask */
+void LoraTask(void *argument)
 {
-  /* USER CODE BEGIN StartDefaultTask */
+  /* USER CODE BEGIN LoraTask */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END StartDefaultTask */
+  /* USER CODE END LoraTask */
+}
+
+/* USER CODE BEGIN Header_LedBlink */
+/**
+* @brief Function implementing the LedBlinkThread thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_LedBlink */
+void LedBlink(void *argument)
+{
+  /* USER CODE BEGIN LedBlink */
+  /* Infinite loop */
+  for(;;)
+  {
+	  HAL_GPIO_TogglePin(Led_PB3_GPIO_Port, Led_PB3_Pin);
+	  osDelay(1000);
+	  DBG("hello world\r\n");
+  }
+  /* USER CODE END LedBlink */
 }
 
 /* Private application code --------------------------------------------------*/
