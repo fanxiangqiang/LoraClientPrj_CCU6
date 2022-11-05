@@ -149,7 +149,7 @@ void LedBlink(void *argument)
   {
 	  HAL_GPIO_TogglePin(Led_PB3_GPIO_Port, Led_PB3_Pin);
 	  osDelay(1000);
-	  DBG("hello world %2f -\r\n",3.14);
+	  DBG("hello world %.2f -\r\n",3.14);
   }
   /* USER CODE END LedBlink */
 }
