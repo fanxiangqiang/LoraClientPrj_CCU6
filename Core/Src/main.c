@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "usart.h"
+#include "app_subghz_phy.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
