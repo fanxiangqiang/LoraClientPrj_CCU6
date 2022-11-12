@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "app_lorawan.h"
 #include "usart.h"
 #include "gpio.h"
 

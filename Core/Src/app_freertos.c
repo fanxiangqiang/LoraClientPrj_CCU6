@@ -23,8 +23,6 @@
 #include "main.h"
 #include "cmsis_os.h"
 
-#include "app_lorawan.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "DebugLog.h"
@@ -126,8 +124,6 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_LoraTask */
 void LoraTask(void *argument)
 {
-  /* init code for LoRaWAN */
-  MX_LoRaWAN_Init();
   /* USER CODE BEGIN LoraTask */
   /* Infinite loop */
   for(;;)
