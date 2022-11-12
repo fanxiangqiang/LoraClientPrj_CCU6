@@ -23,7 +23,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 
-#include "app_subghz_phy.h"
+#include "app_lorawan.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -126,8 +126,8 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_LoraTask */
 void LoraTask(void *argument)
 {
-  /* init code for SubGHz_Phy */
-  MX_SubGHz_Phy_Init();
+  /* init code for LoRaWAN */
+  MX_LoRaWAN_Init();
   /* USER CODE BEGIN LoraTask */
   /* Infinite loop */
   for(;;)

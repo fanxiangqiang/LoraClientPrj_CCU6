@@ -69,6 +69,30 @@ extern "C" {
   */
 void SystemApp_Init(void);
 
+/**
+  * @brief  callback to get the battery level in % of full charge (254 full charge, 0 no charge)
+  * @retval battery level
+  */
+uint8_t GetBatteryLevel(void);
+
+/**
+  * @brief  callback to get the current temperature in the MCU
+  * @retval temperature level
+  */
+int16_t GetTemperatureLevel(void);
+
+/**
+  * @brief  callback to get the board 64 bits unique ID
+  * @param  id unique ID
+  */
+void GetUniqueId(uint8_t *id);
+
+/**
+  * @brief  callback to get the board 32 bits unique ID (LSB)
+  * @retval devAddr Device Address
+  */
+uint32_t GetDevAddr(void);
+
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

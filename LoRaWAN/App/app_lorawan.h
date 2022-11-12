@@ -1,10 +1,10 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    subghz_phy_app.h
+  * @file    app_lorawan.h
   * @author  MCD Application Team
-  * @brief   Header of application of the SubGHz_Phy Middleware
-  ******************************************************************************
+  * @brief   Header of application of the LRWAN Middleware
+   ******************************************************************************
   * @attention
   *
   * Copyright (c) 2022 STMicroelectronics.
@@ -19,8 +19,8 @@
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __SUBGHZ_PHY_APP_H__
-#define __SUBGHZ_PHY_APP_H__
+#ifndef __APP_LORAWAN_H__
+#define __APP_LORAWAN_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -37,7 +37,6 @@ extern "C" {
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
-
 /* USER CODE BEGIN EC */
 
 /* USER CODE END EC */
@@ -47,16 +46,16 @@ extern "C" {
 
 /* USER CODE END EV */
 
-/* Exported macros -----------------------------------------------------------*/
+/* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
 
-/* Exported functions prototypes ---------------------------------------------*/
+/* Exported Functions Prototypes ---------------------------------------------*/
 /**
-  * @brief  Init Subghz Application
+  * @brief  Init Lora Application
   */
-void SubghzApp_Init(void);
+void MX_LoRaWAN_Init(void);
 
 /* USER CODE BEGIN EFP */
 
@@ -66,4 +65,4 @@ void SubghzApp_Init(void);
 }
 #endif
 
-#endif /*__SUBGHZ_PHY_APP_H__*/
+#endif /*__APP_LORAWAN_H__*/

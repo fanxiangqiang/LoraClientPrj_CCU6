@@ -1,10 +1,10 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    app_subghz_phy.h
+  * @file    systime.h
   * @author  MCD Application Team
-  * @brief   Header of application of the SubGHz_Phy Middleware
-   ******************************************************************************
+  * @brief   Map middleware systime
+  ******************************************************************************
   * @attention
   *
   * Copyright (c) 2022 STMicroelectronics.
@@ -19,14 +19,15 @@
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __APP_SUBGHZ_PHY_H__
-#define __APP_SUBGHZ_PHY_H__
+#ifndef __SYSTIME_H__
+#define __SYSTIME_H__
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+#include "stm32_systime.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -51,12 +52,7 @@ extern "C" {
 
 /* USER CODE END EM */
 
-/* Exported Functions Prototypes ---------------------------------------------*/
-/**
-  * @brief  Init SubGHz Radio Application
-  */
-void MX_SubGHz_Phy_Init(void);
-
+/* Exported functions prototypes ---------------------------------------------*/
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
@@ -65,4 +61,4 @@ void MX_SubGHz_Phy_Init(void);
 }
 #endif
 
-#endif /*__APP_SUBGHZ_PHY_H__*/
+#endif /*__SYSTIME_H__*/

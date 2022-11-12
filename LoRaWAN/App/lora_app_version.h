@@ -1,7 +1,7 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    app_version.h
+  * @file    lora_app_version.h
   * @author  MCD Application Team
   * @brief   Definition the version of the application
   ******************************************************************************
