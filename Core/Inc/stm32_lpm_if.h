@@ -1,8 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    stm32wlxx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
+  * @file    stm32_lpm_if.h
+  * @author  MCD Application Team
+  * @brief   Header for Low Power Manager interface configuration
   ******************************************************************************
   * @attention
   *
@@ -13,19 +14,21 @@
   * in the root directory of this software component.
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
- ******************************************************************************
+  ******************************************************************************
   */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32WLxx_IT_H
-#define __STM32WLxx_IT_H
+#ifndef __STM32_LPM_IF_H__
+#define __STM32_LPM_IF_H__
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
-/* Private includes ----------------------------------------------------------*/
+/* Includes ------------------------------------------------------------------*/
+#include "stm32_lpm.h"
+
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -40,22 +43,51 @@
 
 /* USER CODE END EC */
 
+/* External variables --------------------------------------------------------*/
+/* USER CODE BEGIN EV */
+
+/* USER CODE END EV */
+
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-void NMI_Handler(void);
-void HardFault_Handler(void);
-void MemManage_Handler(void);
-void BusFault_Handler(void);
-void UsageFault_Handler(void);
-void DebugMon_Handler(void);
-void SysTick_Handler(void);
-void EXTI0_IRQHandler(void);
-void EXTI1_IRQHandler(void);
-void EXTI4_IRQHandler(void);
+/**
+  * @brief Enters Low Power Off Mode
+  */
+void PWR_EnterOffMode(void);
+
+/**
+  * @brief Exits Low Power Off Mode
+  */
+void PWR_ExitOffMode(void);
+
+/**
+  * @brief Enters Low Power Stop Mode
+  * @note ARM exists the function when waking up
+  */
+void PWR_EnterStopMode(void);
+
+/**
+  * @brief Exits Low Power Stop Mode
+  * @note Enable the pll at 32MHz
+  */
+void PWR_ExitStopMode(void);
+
+/**
+  * @brief Enters Low Power Sleep Mode
+  * @note ARM exits the function when waking up
+  */
+void PWR_EnterSleepMode(void);
+
+/**
+  * @brief Exits Low Power Sleep Mode
+  * @note ARM exits the function when waking up
+  */
+void PWR_ExitSleepMode(void);
+
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
@@ -64,4 +96,4 @@ void EXTI4_IRQHandler(void);
 }
 #endif
 
-#endif /* __STM32WLxx_IT_H */
+#endif /*__STM32_LPM_IF_H__ */

@@ -1,9 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
+  * @file    sys_app.h
+  * @author  MCD Application Team
+  * @brief   Function prototypes for sys_app.c file
   ******************************************************************************
   * @attention
   *
@@ -19,20 +19,23 @@
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef __SYS_APP_H__
+#define __SYS_APP_H__
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32wlxx_hal.h"
-
-/* Private includes ----------------------------------------------------------*/
+#include "stdint.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
+
+/* Exported defines ----------------------------------------------------------*/
+/* USER CODE BEGIN ED */
+
+/* USER CODE END ED */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
@@ -44,38 +47,34 @@ extern "C" {
 
 /* USER CODE END EC */
 
-/* Exported macro ------------------------------------------------------------*/
+/* External variables --------------------------------------------------------*/
+/* USER CODE BEGIN EV */
+
+/* USER CODE END EV */
+
+/* Exported macros -----------------------------------------------------------*/
+/* USER CODE BEGIN APP_PRINT */
+/* Map your own trace mechanism or to map UTIL_ADV_TRACE see examples from CubeFw, e.g.: */
+#define APP_PRINTF(...)     /* do{ {UTIL_ADV_TRACE_COND_FSend(VLEVEL_ALWAYS, T_REG_OFF, TS_OFF, __VA_ARGS__);} }while(0); */
+#define APP_LOG(TS,VL,...)  /* do{ {UTIL_ADV_TRACE_COND_FSend(VL, T_REG_OFF, TS, __VA_ARGS__);} }while(0); */
+/* USER CODE END APP_PRINT */
+
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-void Error_Handler(void);
+/**
+  * @brief initialize the system (dbg pins, trace, mbmux, sys timer, LPM, ...)
+  */
+void SystemApp_Init(void);
 
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
 
-/* Private defines -----------------------------------------------------------*/
-#define Led_PB3_Pin GPIO_PIN_3
-#define Led_PB3_GPIO_Port GPIOB
-#define Led_PB4_Pin GPIO_PIN_4
-#define Led_PB4_GPIO_Port GPIOB
-#define Button1_Pin GPIO_PIN_0
-#define Button1_GPIO_Port GPIOA
-#define Button1_EXTI_IRQn EXTI0_IRQn
-#define Button2_Pin GPIO_PIN_1
-#define Button2_GPIO_Port GPIOA
-#define Button2_EXTI_IRQn EXTI1_IRQn
-#define Button3_Pin GPIO_PIN_4
-#define Button3_GPIO_Port GPIOA
-#define Button3_EXTI_IRQn EXTI4_IRQn
-/* USER CODE BEGIN Private defines */
-
-/* USER CODE END Private defines */
-
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __MAIN_H */
+#endif /* __SYS_APP_H__ */

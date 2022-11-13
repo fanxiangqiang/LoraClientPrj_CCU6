@@ -1,8 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    stm32wlxx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
+  * @file    utilities_def.h
+  * @author  MCD Application Team
+  * @brief   Definitions for modules requiring utilities
   ******************************************************************************
   * @attention
   *
@@ -13,24 +14,41 @@
   * in the root directory of this software component.
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
- ******************************************************************************
+  ******************************************************************************
   */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32WLxx_IT_H
-#define __STM32WLxx_IT_H
+#ifndef __UTILITIES_DEF_H__
+#define __UTILITIES_DEF_H__
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
-/* Private includes ----------------------------------------------------------*/
+/* Includes ------------------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
+/******************************************************************************
+  * LOW POWER MANAGER
+  ******************************************************************************/
+/**
+  * Supported requester to the MCU Low Power Manager - can be increased up  to 32
+  * It lists a bit mapping of all user of the Low Power Manager
+  */
+typedef enum
+{
+  /* USER CODE BEGIN CFG_LPM_Id_t_0 */
+
+  /* USER CODE END CFG_LPM_Id_t_0 */
+  CFG_LPM_DUMMY_Id,
+  /* USER CODE BEGIN CFG_LPM_Id_t */
+
+  /* USER CODE END CFG_LPM_Id_t */
+} CFG_LPM_Id_t;
 /* USER CODE BEGIN ET */
 
 /* USER CODE END ET */
@@ -40,22 +58,17 @@
 
 /* USER CODE END EC */
 
+/* External variables --------------------------------------------------------*/
+/* USER CODE BEGIN EV */
+
+/* USER CODE END EV */
+
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-void NMI_Handler(void);
-void HardFault_Handler(void);
-void MemManage_Handler(void);
-void BusFault_Handler(void);
-void UsageFault_Handler(void);
-void DebugMon_Handler(void);
-void SysTick_Handler(void);
-void EXTI0_IRQHandler(void);
-void EXTI1_IRQHandler(void);
-void EXTI4_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
@@ -64,4 +77,4 @@ void EXTI4_IRQHandler(void);
 }
 #endif
 
-#endif /* __STM32WLxx_IT_H */
+#endif /* __UTILITIES_DEF_H__ */

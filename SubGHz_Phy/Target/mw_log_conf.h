@@ -1,9 +1,10 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    stm32wlxx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
-  ******************************************************************************
+  * @file    mw_log_conf.h
+  * @author  MCD Application Team
+  * @brief   Configure (enable/disable) traces for CM0
+  *******************************************************************************
   * @attention
   *
   * Copyright (c) 2022 STMicroelectronics.
@@ -13,19 +14,19 @@
   * in the root directory of this software component.
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
- ******************************************************************************
+  ******************************************************************************
   */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32WLxx_IT_H
-#define __STM32WLxx_IT_H
+#ifndef __MW_LOG_CONF_H__
+#define __MW_LOG_CONF_H__
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
-/* Private includes ----------------------------------------------------------*/
+/* Includes ------------------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -36,26 +37,34 @@
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
+#define MW_LOG_ENABLED
+
 /* USER CODE BEGIN EC */
 
 /* USER CODE END EC */
 
+/* External variables --------------------------------------------------------*/
+/* USER CODE BEGIN EV */
+
+/* USER CODE END EV */
+
 /* Exported macro ------------------------------------------------------------*/
+#ifdef MW_LOG_ENABLED
+/* USER CODE BEGIN Mw_Logs_En*/
+/* Map your own trace mechanism or to map UTIL_ADV_TRACE see examples from CubeFw, i.e.:
+                             do{ {UTIL_ADV_TRACE_COND_FSend(VL, T_REG_OFF, TS, __VA_ARGS__);} }while(0) */
+#define MW_LOG(TS,VL, ...)
+/* USER CODE END Mw_Logs_En */
+#else  /* MW_LOG_ENABLED */
+/* USER CODE BEGIN Mw_Logs_Dis*/
+#define MW_LOG(TS,VL, ...)
+/* USER CODE END Mw_Logs_Dis */
+#endif /* MW_LOG_ENABLED */
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-void NMI_Handler(void);
-void HardFault_Handler(void);
-void MemManage_Handler(void);
-void BusFault_Handler(void);
-void UsageFault_Handler(void);
-void DebugMon_Handler(void);
-void SysTick_Handler(void);
-void EXTI0_IRQHandler(void);
-void EXTI1_IRQHandler(void);
-void EXTI4_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
@@ -64,4 +73,4 @@ void EXTI4_IRQHandler(void);
 }
 #endif
 
-#endif /* __STM32WLxx_IT_H */
+#endif /*__MW_LOG_CONF_H__ */

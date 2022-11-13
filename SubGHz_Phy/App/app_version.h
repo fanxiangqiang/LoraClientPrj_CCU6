@@ -1,9 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
+  * @file    app_version.h
+  * @author  MCD Application Team
+  * @brief   Definition the version of the application
   ******************************************************************************
   * @attention
   *
@@ -19,17 +19,15 @@
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef __APP_VERSION_H__
+#define __APP_VERSION_H__
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32wlxx_hal.h"
 
-/* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -40,42 +38,45 @@ extern "C" {
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
+#define APP_VERSION_MAIN   (0x01U) /*!< [31:24] main version */
+#define APP_VERSION_SUB1   (0x02U) /*!< [23:16] sub1 version */
+#define APP_VERSION_SUB2   (0x00U) /*!< [15:8]  sub2 version */
+#define APP_VERSION_RC     (0x00U) /*!< [7:0]  release candidate */
+
+#define APP_VERSION_MAIN_SHIFT 24  /*!< main byte shift */
+#define APP_VERSION_SUB1_SHIFT 16  /*!< sub1 byte shift */
+#define APP_VERSION_SUB2_SHIFT 8   /*!< sub2 byte shift */
+#define APP_VERSION_RC_SHIFT   0   /*!< release candidate byte shift */
+
 /* USER CODE BEGIN EC */
 
 /* USER CODE END EC */
 
-/* Exported macro ------------------------------------------------------------*/
+/* External variables --------------------------------------------------------*/
+/* USER CODE BEGIN EV */
+
+/* USER CODE END EV */
+
+/* Exported macros -----------------------------------------------------------*/
+/**
+  * @brief Application version
+  */
+#define APP_VERSION         ((APP_VERSION_MAIN  << APP_VERSION_MAIN_SHIFT)\
+                             |(APP_VERSION_SUB1 << APP_VERSION_SUB1_SHIFT)\
+                             |(APP_VERSION_SUB2 << APP_VERSION_SUB2_SHIFT)\
+                             |(APP_VERSION_RC   << APP_VERSION_RC_SHIFT))
+
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-void Error_Handler(void);
-
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
-
-/* Private defines -----------------------------------------------------------*/
-#define Led_PB3_Pin GPIO_PIN_3
-#define Led_PB3_GPIO_Port GPIOB
-#define Led_PB4_Pin GPIO_PIN_4
-#define Led_PB4_GPIO_Port GPIOB
-#define Button1_Pin GPIO_PIN_0
-#define Button1_GPIO_Port GPIOA
-#define Button1_EXTI_IRQn EXTI0_IRQn
-#define Button2_Pin GPIO_PIN_1
-#define Button2_GPIO_Port GPIOA
-#define Button2_EXTI_IRQn EXTI1_IRQn
-#define Button3_Pin GPIO_PIN_4
-#define Button3_GPIO_Port GPIOA
-#define Button3_EXTI_IRQn EXTI4_IRQn
-/* USER CODE BEGIN Private defines */
-
-/* USER CODE END Private defines */
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __MAIN_H */
+#endif /*__APP_VERSION_H__*/

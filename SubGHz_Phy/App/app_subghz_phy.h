@@ -1,9 +1,10 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    stm32wlxx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
-  ******************************************************************************
+  * @file    app_subghz_phy.h
+  * @author  MCD Application Team
+  * @brief   Header of application of the SubGHz_Phy Middleware
+   ******************************************************************************
   * @attention
   *
   * Copyright (c) 2022 STMicroelectronics.
@@ -13,21 +14,21 @@
   * in the root directory of this software component.
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
- ******************************************************************************
+  ******************************************************************************
   */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32WLxx_IT_H
-#define __STM32WLxx_IT_H
+#ifndef __APP_SUBGHZ_PHY_H__
+#define __APP_SUBGHZ_PHY_H__
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
-/* Private includes ----------------------------------------------------------*/
+/* Includes ------------------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "subghz_phy_app.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -40,22 +41,22 @@
 
 /* USER CODE END EC */
 
+/* External variables --------------------------------------------------------*/
+/* USER CODE BEGIN EV */
+
+/* USER CODE END EV */
+
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
 
-/* Exported functions prototypes ---------------------------------------------*/
-void NMI_Handler(void);
-void HardFault_Handler(void);
-void MemManage_Handler(void);
-void BusFault_Handler(void);
-void UsageFault_Handler(void);
-void DebugMon_Handler(void);
-void SysTick_Handler(void);
-void EXTI0_IRQHandler(void);
-void EXTI1_IRQHandler(void);
-void EXTI4_IRQHandler(void);
+/* Exported Functions Prototypes ---------------------------------------------*/
+/**
+  * @brief  Init SubGHz Radio Application
+  */
+void MX_SubGHz_Phy_Init(void);
+
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
@@ -64,4 +65,4 @@ void EXTI4_IRQHandler(void);
 }
 #endif
 
-#endif /* __STM32WLxx_IT_H */
+#endif /*__APP_SUBGHZ_PHY_H__*/
